@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ServiceBus.Messaging;
 using System.Threading;
+using System.Configuration;
 
 namespace AzureConnectionSample
 {
     class Program
     {
-        static string connectionString = "HostName=BIM.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=zZdQ/REbocyXvP0iNyt55WUnLxOAsu7jF8e31pnAV/o=";
+        static string connectionString = ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
+
         static string iotHubD2cEndpoint = "messages/events";
         static EventHubClient eventHubClient;
 
